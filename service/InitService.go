@@ -30,8 +30,8 @@ func InitService() {
 		go callService(fromCurrency, &wg)
 	}
 
-	endTime := time.Since(startTime)
 	wg.Wait()
+	endTime := time.Now().Sub(startTime)
 
 	logger.WithField(" Total time taken for execution: ", endTime).Info("Execution Time")
 }
@@ -57,7 +57,6 @@ func callService(from string, wg *sync.WaitGroup) {
 		log.Panic(apiErr)
 	}
 	wg.Done()
-
 }
 
 // getXeApiData : convert to other exchange format which hit XE API

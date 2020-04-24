@@ -14,3 +14,8 @@ Execution flow
 2] if table is not exist it will create that table in your postgresql db
 3] it will insert currency details with respect to each iterated currency value
 4] If data with that exchange value already not exists it updates to that currency and mid value.
+
+
+Benchmarking :
+
+Total Time taken for 10 currencies  3.974s

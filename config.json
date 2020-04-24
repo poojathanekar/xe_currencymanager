@@ -6,5 +6,5 @@
     "password": "poojat",
     "dbname": "currency"
  },
- "currencies":["AFN","USD","INR"]
+ "currencies": ["AED", "CUP", "AFN", "ETB", "ALL", "AMD", "AOA", "ARS", "AZN", "BAM"]
 } 
