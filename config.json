@@ -1,0 +1,10 @@
+{
+ "pgdb_config":{
+    "host": "localhost",
+    "port": 5433,
+    "user": "postgres",
+    "password": "poojat",
+    "dbname": "currency"
+ },
+ "currencies":["AFN","USD","INR"]
+} 
