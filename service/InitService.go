@@ -78,12 +78,25 @@ func getXeAPIData(from string, wg *sync.WaitGroup) (model.XEResponse, error) {
 
 	req.URL.RawQuery = q.Encode()
 	req.SetBasicAuth(username, password)
-	resp, clientErr := RequestForAPI(req)
+	// resp, clientErr := RequestForAPI(req)
+	// if clientErr != nil {
+	// 	logger.WithField("read http response error", clientErr.Error()).Error("read response failed")
+	// 	return xeResponseData, clientErr
+	// }
+  client := &http.Client{}
+
+	client = &http.Client{
+		Timeout: time.Second * time.Duration(1500),
+	}
+	resp, clientErr := client.Do(req)
 	if clientErr != nil {
-		logger.WithField("read http response error", clientErr.Error()).Error("read response failed")
+		logger.WithField("error from api", clientErr.Error()).Error("Get Request Failed")
 		return xeResponseData, clientErr
 	}
-
+	if resp.StatusCode != 200 {
+		logger.WithField("error from api", resp).Error("Get Request Failed")
+		return xeResponseData, clientErr
+	}
 	bodyText, readErr := ioutil.ReadAll(resp.Body)
 	if readErr != nil {
 		logger.WithField("read http response error", readErr.Error()).Error("read response failed")
