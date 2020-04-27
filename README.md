@@ -1,4 +1,4 @@
-# CurrencyConversion
+# XE_CurrencyManager 
 XE currency data API
 
 It provides up to date  information regarding currencies.
@@ -19,3 +19,7 @@ Execution flow
 Benchmarking :
 
 Total Time taken for 10 currencies  3.974s
+
+Mock Testing:
+1] mock testing for correct currency input to request for result in another currencies 
+2] mock testing for incorrect currency input to request for result in another currencies 
